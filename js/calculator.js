@@ -37,6 +37,12 @@ var calculate = function( parse ){
 				answer = parse[index];
 				break;
 		}
+		
+		if( isNaN(answer) || !isFinite(answer) )
+		{
+			answer = 'Not a valid Number';
+			break;
+		}
 	}
 	return answer;
 }
@@ -52,12 +58,12 @@ renderScreen();
 var converNumber = number => ( number.indexOf('.') > 0 ) ? parseFloat(number) : parseInt(number);
 
 var makeNegative = function( oprators ){
-	if( tempLcd === '' || tempLcd[tempLcd.length-1] === '0' || isEmpty(tempLcd, oprators)) 
+	if( tempLcd === '' || tempLcd[tempLcd.length-1] === '0' || isEmpty(tempLcd, oprators))
 		return '';
 
 
 	var last ,sp;
-	
+
 
 	var ee = '12+32-(-11)-12÷(-34)x(-234)+2',
 		isNeg = tempLcd.search(/\(\-\d+\)$/g) >= 0;
@@ -65,13 +71,13 @@ var makeNegative = function( oprators ){
 	if( isNeg ){
 		last = '-' + tempLcd.split(/[+÷x-]\(\-/).pop().replace(/\(\-|\)/g,'');
 		sp   = tempLcd.replace(new RegExp( "\\(" + last + "\\)$", 'g' ),'');
-		// last 	= converNumber(tempLcd[tempLcd.length-1] === ')' ? '-' + last: last)*-1; 
+		// last 	= converNumber(tempLcd[tempLcd.length-1] === ')' ? '-' + last: last)*-1;
 	} else {
 		last = tempLcd.split(/[+÷x-]+/).pop();
 		sp   = tempLcd.replace( new RegExp( last + "$", 'i' ),'');
 	}
 
-	last 	= converNumber(last)*-1; 
+	last 	= converNumber(last)*-1;
 	tempLcd = sp + (last > 0 ? last : '(' + last + ')');
 	return ''
 }
@@ -155,7 +161,7 @@ var keyPress = function( event, keyValue = '' ){
 
 
 for( let index = 0; index < key.length; index++ ) {
-	key[index].addEventListener("click", 
+	key[index].addEventListener("click",
 		keyPress,
 		false
 	);
@@ -167,7 +173,7 @@ function keyDown(e) {
 	var keyCode = e.keyCode;
 
 
-	if( keyCode === 13 ) 
+	if( keyCode === 13 )
 		keyPress( '=' );
 
 	if( keyCode >= 48 && keyCode <= 57)
