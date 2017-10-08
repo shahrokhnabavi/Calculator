@@ -13,7 +13,7 @@ body{
     text-align: center;
     margin-bottom: 10px;
 }
-.simple #lcd div#screen{    
+.simple #lcd div#screen{
 	width: 130px;
     background: #e8e8e8;
     background: -webkit-linear-gradient(#e8e8e8, #f5f5f3);
@@ -26,7 +26,9 @@ body{
     overflow: hidden;
 }
 #screen hr {
-    margin: 2px 0px;
+    margin: 5px 0px;
+    border-bottom: 1px solid #b7b7b7;
+    border-top: 1px solid #f7f7f7;
 }
 #lcd div#result {
     text-align: right;
@@ -59,23 +61,26 @@ body{
 
 
 
-
-
-
-.container{
+.cn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.body{
     position: absolute;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
 }
-.container>.row{
+.body>.row{
+    margin-left:0px;
     height: 100%;
 }
-.container #lcd .col-12{
+.container #lcd .col-xs-12{
     padding-left: 0px;
 }
-.container #lcd div#screen{    
+.container #lcd div#screen{
     background: #e8e8e8;
     background: -webkit-linear-gradient(#e8e8e8, #f5f5f3);
     background: -o-linear-gradient(#e8e8e8, #f5f5f3);
@@ -83,7 +88,7 @@ body{
     background: linear-gradient(#e8e8e8, #f5f5f3);
     border: 1px solid #ccc;
     margin-bottom: 10px;
-    padding: 4px 8px;
+    padding: 7px 8px 4px 8px;
     overflow: hidden;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -96,12 +101,14 @@ body{
     margin-right: 5px;
     max-width: 31.3%;
 }
-.container .extera .key{
+.container .extera .key.normal{
     margin-right: 5px;
-    max-width: 21.7%;
+    max-width: 21.4%;
 }
 .container .extera .key.equal{
-    max-width: 54.7%;
+    width: 52% !important;
+    margin-right: 0px;
+    /*max-width: 53%;*/
 }
 .container .key{
     border: 1px solid #ccc;
@@ -116,4 +123,82 @@ body{
 }
 .container .extera .btn-danger{
     border-color: #a21b28;
+}
+
+@media screen and (max-width: 1366px) {
+    .container .extera .key.equal {
+        width: 53% !important;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .container .extera .key.equal {
+        width: 52% !important;
+    }
+}
+
+@media screen and (max-width: 736px) {
+    .container .extera .key.equal {
+        width: 53.6% !important;
+    }
+}
+
+@media screen and (max-width: 667px) {
+    .container .extera .key.equal {
+        width: 53.4% !important;
+    }
+}
+
+@media screen and (max-width: 639px) {
+    .container .extera .key.equal {
+        width: 53.8% !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container .extera .key.equal {
+        width: 53% !important;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .container .extera .key.equal {
+        max-width: 52.6%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container .extera .key.equal {
+        max-width: 51.9%;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .container .extera .key.equal {
+        max-width: 50.9%;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .container .extera .key.equal {
+        width: 50.3% !important;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .container .numpad .key{
+        width: 31.2% !important;
+    }
+    .container .extera .key.equal {
+        width: 50% !important;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .container .numpad .key{
+        width: 30.9% !important;
+    }
+    .container .extera .key.equal {
+        width: 49% !important;
+    }
 }
