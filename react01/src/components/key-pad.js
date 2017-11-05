@@ -5,15 +5,16 @@ import Operator  from './operator';
 import ExtraKey  from './extra-key';
 
 export default class KeyPad extends React.Component {
-    constructor(){
-        super();
-    }
     render(){
+        const {
+                hdlNumberPad, hdlSignKeyPad, hdlPeriodPad, hdlCurrectPad,
+                hdlOperatorPad
+              } = this.props;
         return (
             <div className="row">
-                <NumberKey />
-                <Operator />
-                <ExtraKey />
+                <NumberKey hdlNumberKey={hdlNumberPad} hdlSignKey={hdlSignKeyPad} hdlPeriod={hdlPeriodPad}/>
+                <Operator hdlOperatorKey={hdlOperatorPad} />
+                <ExtraKey hdlCurrectKey={hdlCurrectPad} />
             </div>
         );
     }
